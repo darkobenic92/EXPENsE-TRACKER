@@ -2,24 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html, body, #root {
   height: 100%;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  color-scheme: light dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-
+/* ===== Animated Gradient Background ===== */
 .bg-animated {
   position: fixed;
   inset: 0;
   z-index: -2;
 
   background:
-    radial-gradient(circle at 50% 50%, rgba(59,130,246,0.5), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(16, 204, 195, 0.5), transparent 60%),
     radial-gradient(circle at 0% 0%, rgba(37,99,235,0.4), transparent 60%),
     radial-gradient(circle at 100% 0%, rgba(29,78,216,0.4), transparent 60%),
-    radial-gradient(circle at 0% 100%, rgba(14,165,233,0.35), transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(56, 7, 233, 0.35), transparent 60%),
     radial-gradient(circle at 100% 100%, rgba(0,0,0,0.9), transparent 65%),
     linear-gradient(135deg, #020617, #000000);
 
@@ -35,10 +37,11 @@ html, body, #root {
   100% { background-position: 50% 50%; }
 }
 
+/* ===== Floating Particles ===== */
 .particle {
   position: fixed;
   border-radius: 50%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.15); /* slightly dimmer for contrast */
   pointer-events: none;
   animation: floatParticle linear infinite;
   z-index: -1;
@@ -50,15 +53,20 @@ html, body, #root {
   100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
 }
 
-
+/* ===== Glass Card ===== */
 .glass {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.85); /* higher contrast for readability */
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1.25rem;
 }
 
+.dark .glass {
+  background: rgba(15, 23, 42, 0.88); /* dark mode glass */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
 
+/* ===== Glow Animation ===== */
 @keyframes glow {
   0% {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
@@ -75,7 +83,7 @@ html, body, #root {
   animation: glow 3s ease-in-out infinite;
 }
 
-
+/* ===== Smooth Color Transitions ===== */
 .transition-colors {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 300ms;
