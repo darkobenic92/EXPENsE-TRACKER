@@ -9,7 +9,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check current session
+    // Get current session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
@@ -50,15 +50,12 @@ export default function App() {
     const email = prompt("Enter your email:");
     if (!email) return;
 
-    // Auto-detect redirect URL for local vs GitHub Pages
-    const redirectUrl =
-      window.location.hostname === "localhost"
-        ? "http://localhost:3000"
-        : "https://darkobenic92.github.io/EXPENSE-TRACKER";
-
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: redirectUrl },
+      options: {
+        // Important: redirect to your GitHub Pages site
+        emailRedirectTo: "https://darkobenic92.github.io/EXPENSE-TRACKER",
+      },
     });
 
     if (error) {
@@ -78,7 +75,7 @@ export default function App() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      {/* Animated background */}
+      {/* Animated gradient background */}
       <div className="bg-animated" />
 
       {/* Floating particles */}
@@ -96,7 +93,7 @@ export default function App() {
       ))}
 
       <div className="min-h-screen flex items-center justify-center p-6">
-        <div className="w-full max-w-7xl glass p-6 animate-glow transition-colors">
+        <div className="w-full max-w-6xl glass p-6 animate-glow transition-colors">
           <div className="flex justify-between items-center mb-6">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-colors transition-shadow animate-glow"
@@ -116,9 +113,7 @@ export default function App() {
 
           {!session ? (
             <div className="text-center text-gray-800 dark:text-gray-100 transition-colors">
-              <h1 className="text-2xl font-bold mb-4">
-                Welcome to Expense Tracker
-              </h1>
+              <h1 className="text-2xl font-bold mb-4">Welcome to Expense Tracker</h1>
               <p className="mb-6 text-gray-600 dark:text-gray-300">
                 Sign in with your email to start tracking your expenses
               </p>
