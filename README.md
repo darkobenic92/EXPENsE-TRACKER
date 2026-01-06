@@ -43,4 +43,4 @@ Built with **HTML, CSS, JavaScript**, and **Supabase** for backend authenticatio
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/darkobenic92/EXPENSE-TRACKER.git
+      https://darkobenic92.github.io/EXPENSE-TRACKER/

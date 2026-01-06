@@ -9,20 +9,17 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get current session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
     });
 
-    // Listen for auth changes
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
-    // Generate floating particles
     const particleCount = 40;
     const particleArray = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
@@ -53,7 +50,6 @@ export default function App() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        // Important: redirect to your GitHub Pages site
         emailRedirectTo: "https://darkobenic92.github.io/EXPENSE-TRACKER",
       },
     });
@@ -114,7 +110,7 @@ export default function App() {
           {!session ? (
             <div className="text-center text-gray-800 dark:text-gray-100 transition-colors">
               <h1 className="text-2xl font-bold mb-4">Welcome to Expense Tracker</h1>
-              <p className="mb-6 text-gray-600 dark:text-gray-300">
+              <p className="font-bold mb-6 text-gray-600 dark:text-gray-300">
                 Sign in with your email to start tracking your expenses
               </p>
               <button

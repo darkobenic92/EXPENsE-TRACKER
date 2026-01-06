@@ -11,7 +11,6 @@ export default function Transactions({ session, darkMode }) {
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Fetch transactions
   const fetchTransactions = async () => {
     setLoading(true);
     const { data, error } = await supabase
@@ -28,7 +27,6 @@ export default function Transactions({ session, darkMode }) {
     if (session) fetchTransactions();
   }, [session]);
 
-  // Add transaction
   const handleAdd = async () => {
     if (!title.trim() || !category.trim() || !amount || isNaN(amount)) {
       alert("Please fill all fields correctly");
@@ -47,7 +45,6 @@ export default function Transactions({ session, darkMode }) {
     setLoading(false);
   };
 
-  // Delete transaction instantly
   const handleDelete = async (id) => {
     setLoading(true);
     const { error } = await supabase
@@ -60,12 +57,10 @@ export default function Transactions({ session, darkMode }) {
     setLoading(false);
   };
 
-  // Totals
   const total = transactions.reduce((sum, t) => sum + Number(t.amount), 0);
   const income = transactions.filter(t => Number(t.amount) > 0).reduce((sum, t) => sum + Number(t.amount), 0);
   const expenses = transactions.filter(t => Number(t.amount) < 0).reduce((sum, t) => sum + Math.abs(Number(t.amount)), 0);
 
-  // Pie chart data (expenses only)
   const categoryTotals = transactions
     .filter(t => Number(t.amount) < 0) // only expenses
     .reduce((acc, t) => {
@@ -79,7 +74,6 @@ export default function Transactions({ session, darkMode }) {
     value: Number(value.toFixed(2))
   }));
 
-  // Pie slice label
   const renderLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
     const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) / 2;

@@ -11,7 +11,6 @@ html, body, #root {
   text-rendering: optimizeLegibility;
 }
 
-/* ===== Animated Gradient Background ===== */
 .bg-animated {
   position: fixed;
   inset: 0;
@@ -37,11 +36,10 @@ html, body, #root {
   100% { background-position: 50% 50%; }
 }
 
-/* ===== Floating Particles ===== */
 .particle {
   position: fixed;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15); /* slightly dimmer for contrast */
+  background: rgba(95, 81, 81, 0.15); 
   pointer-events: none;
   animation: floatParticle linear infinite;
   z-index: -1;
@@ -53,20 +51,18 @@ html, body, #root {
   100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
 }
 
-/* ===== Glass Card ===== */
 .glass {
-  background: rgba(255, 255, 255, 0.85); /* higher contrast for readability */
+  background: rgba(255, 255, 255, 0.85); 
   backdrop-filter: blur(18px);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 1.25rem;
 }
 
 .dark .glass {
-  background: rgba(15, 23, 42, 0.88); /* dark mode glass */
+  background: rgba(15, 23, 42, 0.88); 
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* ===== Glow Animation ===== */
 @keyframes glow {
   0% {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.4), 0 0 20px rgba(0, 0, 0, 0.2);
@@ -83,7 +79,6 @@ html, body, #root {
   animation: glow 3s ease-in-out infinite;
 }
 
-/* ===== Smooth Color Transitions ===== */
 .transition-colors {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-duration: 300ms;
