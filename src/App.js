@@ -71,10 +71,8 @@ export default function App() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      {/* Animated gradient background */}
       <div className="bg-animated" />
 
-      {/* Floating particles */}
       {particles.map((p) => (
         <div
           key={p.id}

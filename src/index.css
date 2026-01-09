@@ -22,7 +22,7 @@ html, body, #root {
     radial-gradient(circle at 100% 0%, rgba(29,78,216,0.4), transparent 60%),
     radial-gradient(circle at 0% 100%, rgba(56, 7, 233, 0.35), transparent 60%),
     radial-gradient(circle at 100% 100%, rgba(0,0,0,0.9), transparent 65%),
-    linear-gradient(135deg, #020617, #000000);
+    linear-gradient(135deg, #020617, #050000);
 
   background-size: 300% 300%;
   animation: bgMove 18s ease-in-out infinite;
@@ -39,7 +39,7 @@ html, body, #root {
 .particle {
   position: fixed;
   border-radius: 50%;
-  background: rgba(95, 81, 81, 0.15); 
+  background: rgba(82, 70, 70, 0.15); 
   pointer-events: none;
   animation: floatParticle linear infinite;
   z-index: -1;
