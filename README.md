@@ -42,7 +42,13 @@ Built with **HTML, CSS, JavaScript**, and **Supabase** for backend authenticatio
 ## How to Run Locally
 
 1. Clone the repository:
+<<<<<<< HEAD
 
       https://darkobenic92.github.io/EXPENSE-TRACKER/
 
 
+=======
+   
+      https://darkobenic92.github.io/EXPENSE-TRACKER/
+
+>>>>>>> aa1b4ebc4430b8acd1dcdec348a0ca2473ca5b61
